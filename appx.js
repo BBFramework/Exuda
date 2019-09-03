@@ -17,6 +17,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
+const cors = require('cors');
 const csurf = require('csurf'); 
 const guest = require('./middlewares/guest'); 
 const local = require('./middlewares/local'); 
@@ -123,16 +124,6 @@ app.use(cookieSession(credentials.sessionSecret));
 app.use(i18n); 
 
 /**
- * Cross-site request forgery defence.
- */
-app.use(csurf()); 
-
-/**
- * Get global access for csrf.
- */
-app.use(csrf);
-
-/**
  * Session settings.
  */
 app.set('trust proxy', 1); 
@@ -148,24 +139,24 @@ app.use(guest);
  * 	- indexRoute: contains apps about website information
  *	  had been published widely.
  */
-app.use('/', indexRouter);
+app.use('/', csurf(), csrf, indexRouter);
 
 /**
  *	- usersRoute: contains apps about member of website
  *	  services that provided by service providers. 
  */
-app.use('/member', memberRouter);
+app.use('/member', csurf(), csrf, memberRouter);
 
 /**
  *	- adminRoute: contains apps used to directs operations
  *	  of website services.
  */
-app.use('/admin', adminRouter);
+app.use('/admin', csurf(), csrf, adminRouter);
 
 /**
  *	- apiRoute: contains the restful api for webservice.
  */
-app.use('/api', apiRouter);
+app.use('/api', cors(), apiRouter);
 
 /**
  * Error handler.
