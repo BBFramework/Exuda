@@ -1,0 +1,92 @@
+<? layout('/layouts/page') -?>
+<div class="body-content">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h1 class="text-center mt-5 mb-4"><?= __("Registry") ?></h1> 
+				<form method="POST" action="/register">
+					<input type="hidden" name="_csrf" value="<?= _csrf ?>">
+					<h5><?= __("Member Informations") ?></h5>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6">
+								<input type="text" name="name" value="<?= (isset(typeof old) && old['name'])?old['name']:null?>" class="form-control form-control-sm<?= (isset(typeof errors) && errors['name'])?" is-invalid":null ?>" placeholder="<?= __("Username") ?> (*)">
+								<div class="invalid-feedback"><?= __((isset(typeof errors) && errors['name'])?errors['name']['msg']:"Please provide a valid name") ?>.</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<select name="date" class="form-control form-control-sm mb-2 mb-lg-0">
+									<option value=""><?= __("Birth date") ?></option>
+									<? for( i=1;i<=31;i++ ){ ?>
+									<option <?= (isset(typeof old) && old['date'] && i==old['date'])?"selected ":null ?>value="<?= i ?>"><?= i ?></option> 
+									<? } ?>	
+								</select>
+							</div>
+							<div class="col-md-4">
+								<select name="month" class="form-control form-control-sm mb-2 mb-lg-0">
+									<option value=""><?= __("Birth month") ?></option>
+									<? for( i=1;i<=12;i++ ){ ?>
+									<option <?= (isset(typeof old) && old['month'] && i==old['month'])?"selected ":null ?>value="<?= i ?>"><?= i ?></option> 
+									<? } ?>
+								</select>
+							</div>
+							<div class="col-md-4">
+								<select name="year" class="form-control form-control-sm">
+									<option value=""><?= __("Birth year") ?></option>
+									<? for( i=2025;i>=1930;i-- ){ ?>
+									<option <?= (isset(typeof old) && old['year'] && i==old['year'])?"selected ":null ?>value="<?= i ?>"><?= i ?></option> 
+									<? } ?>
+								</select>
+							</div>
+						</div>
+					</div>
+					<h5><?= __("Account Informations") ?></h5> 
+					<div class="form-group">
+						<div class="row mb-2">
+							<div class="col-md-8">
+								<input type="text" name="mail" value="<?= (isset(typeof old) && old['mail'])?old['mail']:null?>" class="form-control form-control-sm<?= (isset(typeof errors) && errors['mail'])?" is-invalid":null ?>" placeholder="Email (*)"> 
+								<div class="invalid-feedback"><?= __((isset(typeof errors) && errors['mail'])?errors['mail']['msg']:"Please provide a valid name") ?>.</div>
+							</div>
+						</div>
+						<div class="row"> 
+							<div class="col-md-8">
+								<input type="text" name="re-mail" value="<?= (isset(typeof old) && old['re-mail'])?old['re-mail']:null?>" class="form-control form-control-sm<?= (isset(typeof errors) && errors['re-mail'])?" is-invalid":null ?>" placeholder="Re-Email (*)">
+								<div class="invalid-feedback"><?= __((isset(typeof errors) && errors['re-mail'])?errors['re-mail']['msg']:"Confirm email is not match email") ?>.</div>
+							</div>
+						</div>
+					</div>
+					<h5><?= __("Security Informations") ?></h5> 
+					<div class="form-group">
+						<div class="row mb-2"> 
+							<div class="col-md-12">
+								<input type="password" name="password" class="form-control w-md-50 form-control-sm<?= (isset(typeof errors) && errors['password'])?" is-invalid":null ?>" placeholder="<?= __("Password") ?> (*)">
+								<div class="invalid-feedback"><?= __((isset(typeof errors) && errors['password'])?errors['password']['msg']:"Please provide a valid password") ?>.</div>
+							</div>
+						</div>
+						<div class="row mb-2"> 
+							<div class="col-md-12">
+								<input type="password" name="re-password" class="form-control  w-md-50 form-control-sm<?= (isset(typeof errors) && errors['re-password'])?" is-invalid":null ?>" placeholder="<?= __("Re-Password") ?> (*)">
+								<div class="invalid-feedback"><?= __((isset(typeof errors) && errors['re-password'])?errors['re-password']['msg']:"Confirm password is not match password") ?>.</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-controls-submit">
+						<p class="m-0">
+							<label for="term-agree" class="btn pl-0 m-0">
+								<input type="checkbox" name="term-agree" id="term-agree" class="align-middle" value="1" checked> 
+								<small><?= __("I'm agree to term of use") ?>.</small> <span class="text-danger">(*)</span>
+							</label>
+							<? if( isset(typeof errors) && errors['term-agree'] ){ ?>
+							<div class="invalid-feedback d-block"><?= __((isset(typeof errors) && errors['term-agree'])?errors['term-agree']['msg']:"Agree to term of use is required") ?>.</div>
+							<? } ?>
+						</p>
+						<p class="text-center mt-3"><input type="submit" value="<?= __("Registry") ?>" class="btn btn-sm btn-danger"></p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+<div class="nav-left-sidebar sidebar-dark">
+	<div class="menu-list">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<b class="d-xl-none d-lg-none"><?= __('Dashboard') ?></b>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav flex-column">
+					<li class="nav-divider"><?= __('Ứng dụng') ?></li>
+					<li class="nav-item"><a class="nav-link<?= isDashboard?null:' active' ?>" href="/admin"><i class="fas fa-fw fa-tachometer-alt"></i><?= __('Dashboard') ?></a></li> 
+					<li class="nav-item"><a class="nav-link<?= isUsers?null:' active' ?>" href="/admin/users"><i class="fas fa-fw fa-users"></i><?= __('Người dùng') ?></a></li> 
+					<li class="nav-item"><a class="nav-link<?= isTasks?null:' active' ?>" href="/admin/tasks"><i class="fas fa-fw fa-tasks"></i><?= __('Công việc') ?></a></li> 
+					<li class="nav-item"><a class="nav-link<?= isCategories?null:' active' ?>" href="/admin/categories"><i class="fas fa-fw fa-folder"></i><?= __('Danh mục') ?></a></li> 
+					<li class="nav-item"><a class="nav-link<?= isArticles?null:' active' ?>" href="/admin/articles"><i class="fas fa-fw fa-newspaper"></i><?= __('Bài viết') ?></a></li> 
+					<li class="nav-item">
+						<a class="nav-link<?= isUpload?null:' active' ?>" data-toggle="collapse" aria-expanded="false" data-target="#submenu-media" aria-controls="submenu-media" href="javascript:void(0)"><i class="fas fa-fw fa-cloud"></i><?= __('Tải lên') ?></a>
+						<div id="submenu-media" class="collapse submenu" style="">
+							<ul class="nav flex-column">
+								<li class="nav-item"><a class="nav-link" href="/admin/media/audio">Audios</a></li>
+								<li class="nav-item"><a class="nav-link" href="/admin/media/photo">Photos</a></li>
+								<li class="nav-item"><a class="nav-link" href="/admin/media/video">Videos</a></li>
+								<li class="nav-item"><a class="nav-link" href="/admin/media/compression">Compressions</a></li>
+								<li class="nav-item"><a class="nav-link" href="/admin/media/other">Others</a></li>
+							</ul>
+						</div>
+					</li> 
+					<li class="nav-divider"><?= __('Cài đặt') ?></li> 
+					<li class="nav-item"><a class="nav-link<?= isPages?null:' active' ?>" href="/admin/pages"><i class="fas fa-fw fa-file"></i><?= __('Thiết kế trang') ?></a></li> 
+					<li class="nav-item"><a class="nav-link<?= isMessages?null:' active' ?>" href="/admin/messages"><i class="fas fa-fw fa-envelope"></i><?= __('Tin nhắn') ?></a></li> 
+					<li class="nav-item"><a class="nav-link<?= isTags?null:' active' ?>" href="/admin/tags"><i class="fas fa-fw fa-tags"></i><?= __('Thẻ tags') ?></a></li> 
+					<li class="nav-item"><a class="nav-link<?= isAccount?null:' active' ?>" href="/admin/account"><i class="fas fa-fw fa-user"></i><?= __('Tài khoản') ?></a></li>
+					<li class="nav-divider"><?= __('Hệ thống') ?></li>
+					<li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-fw fa-home"></i><?= __('Trang chủ') ?></a></li>
+					<li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-power-off"></i><?= __('Đăng xuất') ?></a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>

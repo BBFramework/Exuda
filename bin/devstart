@@ -1,1 +1,1 @@
-DEBUG=express-locallibrary-tutorial:* npm run devstart
+NODE_ENV=development DEBUG=exuda:* npm run devstart

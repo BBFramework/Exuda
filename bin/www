@@ -5,7 +5,7 @@
  */
 
 var app = require('../appx');
-var debug = require('debug')('example-seven-1:server');
+var debug = require('debug')('exuda:server');
 var http = require('http');
 
 /**
@@ -20,6 +20,11 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+/**
+ * Attach Socket.IO.
+ */
+var socket = require('../middlewares/socket').listen(server);
 
 /**
  * Listen on provided port, on all network interfaces.

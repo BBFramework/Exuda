@@ -1,0 +1,1 @@
+NODE_ENV=development DEBUG=exuda:* npm run inspect

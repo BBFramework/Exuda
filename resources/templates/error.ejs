@@ -1,0 +1,14 @@
+<? layout('./layouts/error') -?>
+<div class="container">
+	<div class="content">
+		<h1 class="title">ERROR <?= (error.status)?error.status:500 ?> <span class="name"><?= (error.title)?error.title:"Internal Server Error" ?></span></h1>
+		<p class="message"><?= message ?></p>
+		<p>You can try following ways</p>
+		<ul>
+			<li>Let's try <a href="javascript:void(0)" onclick="window.location.reload(true)">again</a>.</li>
+			<li>Return <a href="javascript:void(0)" onclick="window.history.back()">back</a> history.</li>
+		</ul>
+		<p class="url"><em><b>URI</b>: <?= uri ?><em><br/><em><b>Method</b>: <?= method ?><em></p>
+		<p class="domain"><strong>Domain:</strong> <em><?= domain ?></em></p>
+	</div>
+</div>
