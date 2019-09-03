@@ -1,6 +1,6 @@
 /**
- *============================================================================
- * Welcome to Exuda Cms, A Nodejs-Expressjs content management system. 
+ *======================================================================================
+ * Welcome to Exuda Skeletal Application, A Nodejs-Expressjs content management system. 
  * It's trying instance new a web enviroment that use create some wonderful 
  * applications.
  *
@@ -9,7 +9,7 @@
  * Copyright (c) 2019. Bapquad Games. 
  *
  * File: ./middlewares/mailer.js
- *============================================================================
+ *======================================================================================
  */
 const nodeMailer = require('nodemailer'); 			// Import the Node Mailer package. 
 const credential = require('../configs/credentials').mailer;
